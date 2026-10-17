@@ -1,0 +1,533 @@
+/* ============================================ */
+/* TRENTIANS GRADEHUB - MOBILE RESPONSIVE STYLES */
+/* Add this to every page after main styles     */
+/* ============================================ */
+
+/* ============================================ */
+/* GLOBAL FIXES                                  */
+/* ============================================ */
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Better touch targets */
+button, .btn, a.btn, .nav-link, .sidebar .nav-link, .action-item {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+}
+
+/* ============================================ */
+/* MOBILE HAMBURGER MENU                        */
+/* ============================================ */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 84px;
+    left: 16px;
+    z-index: 999;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1b3a5c, #2d5a7a);
+    color: white;
+    border: none;
+    font-size: 22px;
+    box-shadow: 0 6px 20px rgba(15, 43, 70, 0.3);
+    transition: all 0.2s;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(0.95);
+}
+
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 43, 70, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+}
+
+/* ============================================ */
+/* TABLET - 992px and below                     */
+/* ============================================ */
+@media (max-width: 992px) {
+    /* Show hamburger */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .mobile-menu-overlay {
+        display: block;
+        pointer-events: none;
+    }
+    
+    .mobile-menu-overlay.active {
+        pointer-events: auto;
+    }
+    
+    /* Lock body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
+    /* ============================================ */
+    /* NAVBAR - Compress for mobile */
+    /* ============================================ */
+    .navbar-custom {
+        height: 62px !important;
+        padding: 8px 0 !important;
+    }
+    
+    .navbar-custom .container {
+        padding: 0 16px !important;
+    }
+    
+    .navbar-brand {
+        font-size: 13px !important;
+    }
+    
+    .navbar-logo {
+        width: 34px !important;
+        height: 34px !important;
+        margin-right: 8px !important;
+    }
+    
+    /* Hide text labels on navbar user info */
+    .user-info > span:not(.role-badge) {
+        display: none !important;
+    }
+    
+    .role-badge {
+        font-size: 9px !important;
+        padding: 3px 8px !important;
+    }
+    
+    .btn-logout {
+        padding: 5px 10px !important;
+        font-size: 11px !important;
+    }
+    
+    .btn-logout i:first-child {
+        margin-right: 0 !important;
+    }
+    
+    /* Show only icon on logout */
+    .btn-logout span {
+        display: none;
+    }
+    
+    .nav-avatar,
+    .nav-avatar-initials {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+    }
+    
+    /* ============================================ */
+    /* SIDEBAR - Slide in from left */
+    /* ============================================ */
+    .sidebar,
+    .app-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 280px !important;
+        min-width: 280px !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        border-radius: 0 20px 20px 0 !important;
+        padding: 80px 0 20px 0 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        z-index: 999 !important;
+        box-shadow: 8px 0 40px rgba(15, 43, 70, 0.3) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+    
+    .sidebar.mobile-open,
+    .app-sidebar.mobile-open {
+        transform: translateX(0) !important;
+    }
+    
+    /* Sidebar nav items - bigger touch targets */
+    .sidebar .nav-link,
+    .app-sidebar .nav-link {
+        padding: 14px 18px !important;
+        font-size: 14px !important;
+        margin: 3px 10px !important;
+    }
+    
+    .sidebar .nav-link i,
+    .app-sidebar .nav-link i {
+        font-size: 17px !important;
+        margin-right: 14px !important;
+    }
+    
+    /* ============================================ */
+    /* MAIN LAYOUT */
+    /* ============================================ */
+    .main-wrapper {
+        flex-direction: column !important;
+        padding: 16px !important;
+        height: auto !important;
+        gap: 0 !important;
+        padding-top: 76px !important;
+    }
+    
+    .content,
+    .app-main {
+        margin-left: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding-right: 0 !important;
+    }
+    
+    /* ============================================ */
+    /* PAGE HEADER */
+    /* ============================================ */
+    .page-header {
+        margin-bottom: 18px !important;
+        padding-bottom: 14px !important;
+    }
+    
+    .page-header h1,
+    .page-title {
+        font-size: 20px !important;
+    }
+    
+    .page-header p,
+    .page-subtitle {
+        font-size: 12px !important;
+    }
+    
+    /* ============================================ */
+    /* STAT CARDS - 2 columns on tablet, 1 on phone */
+    /* ============================================ */
+    .stat-grid,
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    
+    .metric-card,
+    .stat-card {
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .metric-value,
+    .stat-value,
+    .number {
+        font-size: 26px !important;
+    }
+    
+    .metric-label,
+    .stat-label,
+    .label {
+        font-size: 10px !important;
+    }
+    
+    .metric-icon,
+    .stat-icon,
+    .icon {
+        font-size: 22px !important;
+        top: 14px !important;
+        right: 14px !important;
+    }
+    
+    /* ============================================ */
+    /* PANELS */
+    /* ============================================ */
+    .panel {
+        border-radius: 10px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .panel-header {
+        padding: 14px 16px !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    
+    .panel-header h3 {
+        font-size: 14px !important;
+    }
+    
+    .panel-body {
+        padding: 16px !important;
+    }
+    
+    /* ============================================ */
+    /* TABLES - Horizontal scroll */
+    /* ============================================ */
+    .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+    
+    .data-table,
+    .modal-table {
+        min-width: 700px !important;
+        font-size: 12px !important;
+    }
+    
+    .data-table thead th,
+    .modal-table thead th {
+        padding: 10px 14px !important;
+        font-size: 10px !important;
+        white-space: nowrap !important;
+    }
+    
+    .data-table tbody td,
+    .modal-table tbody td {
+        padding: 12px 14px !important;
+        font-size: 12px !important;
+    }
+    
+    /* ============================================ */
+    /* BUTTONS - Stack if needed */
+    /* ============================================ */
+    .btn-primary-custom,
+    .btn-outline-custom,
+    .btn-approve,
+    .btn-reject,
+    .btn-upload,
+    .btn-submit {
+        padding: 10px 16px !important;
+        font-size: 12px !important;
+    }
+    
+    /* ============================================ */
+    /* MODALS - Full width on mobile */
+    /* ============================================ */
+    .modal-dialog {
+        margin: 8px !important;
+        max-width: calc(100vw - 16px) !important;
+    }
+    
+    .modal-dialog-centered {
+        min-height: calc(100% - 16px) !important;
+    }
+    
+    .modal-content {
+        border-radius: 14px !important;
+    }
+    
+    .modal-header {
+        padding: 16px 20px !important;
+    }
+    
+    .modal-header-icon {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 18px !important;
+    }
+    
+    .modal-title {
+        font-size: 14px !important;
+    }
+    
+    .modal-header .modal-subtitle {
+        font-size: 11px !important;
+    }
+    
+    .modal-body {
+        padding: 18px !important;
+        max-height: 65vh !important;
+    }
+    
+    .modal-footer {
+        padding: 12px 18px !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .modal-footer > * {
+        flex: 1;
+        min-width: 120px;
+    }
+    
+    /* ============================================ */
+    /* ALERTS */
+    /* ============================================ */
+    .alert {
+        font-size: 12px !important;
+        padding: 11px 14px !important;
+        border-radius: 8px !important;
+    }
+    
+    /* ============================================ */
+    /* NOTIFICATIONS - Full width */
+    /* ============================================ */
+    .notif-card {
+        padding: 14px 14px !important;
+        gap: 12px !important;
+    }
+    
+    .notif-card-icon {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 16px !important;
+    }
+    
+    .notif-card-title {
+        font-size: 12.5px !important;
+    }
+    
+    .notif-card-msg {
+        font-size: 11.5px !important;
+    }
+}
+
+/* ============================================ */
+/* SMALL PHONE - 600px and below                */
+/* ============================================ */
+@media (max-width: 600px) {
+    /* Single column stats */
+    .stat-grid,
+    .info-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Navbar more compact */
+    .navbar-brand {
+        font-size: 12px !important;
+    }
+    
+    .navbar-logo {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    /* Hide role badge on very small screens */
+    .role-badge {
+        display: none !important;
+    }
+    
+    /* Page headers */
+    .page-header h1,
+    .page-title {
+        font-size: 18px !important;
+    }
+    
+    /* Stats */
+    .metric-value,
+    .stat-value,
+    .number {
+        font-size: 24px !important;
+    }
+    
+    /* Buttons stack full-width */
+    .panel-header .btn-primary-custom,
+    .panel-header button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    
+    /* Modal */
+    .modal-dialog {
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .modal-content {
+        border-radius: 0 !important;
+        min-height: 100vh !important;
+    }
+    
+    .modal-dialog-centered {
+        min-height: 100vh !important;
+        display: block !important;
+    }
+    
+    /* Modal header padding for safe area */
+    .modal-header {
+        padding: 20px 18px !important;
+        padding-top: max(20px, env(safe-area-inset-top)) !important;
+    }
+    
+    /* Row/Column buttons in tables */
+    .panel-header,
+    .modal-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    .panel-header > *,
+    .modal-header > * {
+        width: 100%;
+    }
+    
+    .modal-header .d-flex {
+        width: auto !important;
+        margin-top: 8px;
+    }
+    
+    /* Larger hamburger for small screens */
+    .mobile-menu-toggle {
+        top: 72px;
+        left: 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+    
+    /* Main wrapper padding */
+    .main-wrapper {
+        padding: 12px !important;
+        padding-top: 68px !important;
+    }
+    
+    /* Inputs for touch */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
+}
+
+/* ============================================ */
+/* LANDSCAPE PHONE                              */
+/* ============================================ */
+@media (max-width: 900px) and (orientation: landscape) {
+    .modal-body {
+        max-height: 50vh !important;
+    }
+    
+    .mobile-menu-toggle {
+        top: 70px;
+    }
+}
+
+/* ============================================ */
+/* LARGE DESKTOP - Keep everything as-is        */
+/* ============================================ */
+@media (min-width: 993px) {
+    .mobile-menu-toggle,
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+    
+    body.menu-open {
+        overflow: auto !important;
+        position: static !important;
+    }
+}
